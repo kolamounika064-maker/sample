@@ -1,0 +1,181 @@
+.site-footer {
+  --text: #0b1220;
+  --muted: #5f6b7a;
+  --line: #e9edf2;
+  --links-inset-left: clamp(40px, 7vw, 110px);
+
+  background: #fff;
+  color: var(--text);
+  border-top: 1px solid var(--line);
+
+  /* Container */
+  .container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: clamp(16px, 2vw, 24px);
+    padding-right: clamp(16px, 2vw, 24px);
+    padding-top: 22px;
+    padding-bottom: 16px;
+  }
+
+  /* Link Columns */
+  .links {
+    padding-left: var(--links-inset-left);
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 100px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  h4 {
+    margin: 0 0 8px;
+    font: 700 15px/1.25 "Albert Sans", sans-serif;
+    letter-spacing: -0.01em;
+    font-size: 24px;
+  }
+
+  ul { margin: 0; padding: 0; list-style: none; font-size: 20px; }
+  li + li { margin-top: 6px; }
+
+  a {
+    color: var(--muted);
+    text-decoration: none;
+    font: 500 13px/1.5 "Albert Sans", sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    &:hover { color: var(--text); }
+  }
+
+  /* Brand + Products */
+  .meta {
+    padding-left: var(--links-inset-left);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    column-gap: 100px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .brand {
+    .logo {
+      display: block;
+      max-width: 153px;
+      height: 77px;
+    }
+    address {
+      color: #000;
+      font-family: "Albert Sans", sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      a { color: var(--text); font-weight: 700; }
+    }
+  }
+
+  .products {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    
+
+    img {
+      height: 132px;
+      width: 132px;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+    }
+  }
+
+  /* Footer Bottom */
+  .bottom {
+    position: relative;
+    padding: 10px 0 8px;
+  }
+
+  .legal {
+    text-align: center;
+    font: 500 12px/1.5 "Albert Sans", sans-serif;
+    line-height: 24px;
+    font-size: 15px;
+    color: var(--muted);
+    a { color: var(--text); text-decoration: none; }
+  }
+
+  .social {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    .ico {
+      --size: 30px;
+      width: var(--size);
+      height: var(--size);
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      transition: transform .15s ease, background .15s ease;
+
+      img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        display: block;
+        border-radius: 10px;
+      }
+
+      &:hover { transform: translateY(-1px); background: #e9edf2; }
+    }
+  }
+
+  /* Floating Ask AI Button */
+  .ask-ai {
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font: 800 14px/1 "Albert Sans", sans-serif;
+    color: #fff;
+    background: #112e4e;
+    text-decoration: none;
+    z-index: 60;
+    transition: transform .18s ease, box-shadow .18s ease;
+    user-select: none;
+
+    &:hover {
+      color: #fff;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    --links-inset-left: clamp(16px, 3vw, 24px);
+
+    .links { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .meta { grid-template-columns: 1fr; row-gap: 14px; }
+    .brand { justify-self: start; }
+    .products { justify-self: center; }
+    .bottom .social { position: static; transform: none; justify-content: center; margin-top: 8px; }
+    .bottom { text-align: center; }
+  }
+
+  @media (max-width: 640px) {
+    .links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}

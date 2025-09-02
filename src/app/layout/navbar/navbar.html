@@ -1,0 +1,67 @@
+<header
+  class="vnav"
+  role="banner"
+  [class.open]="mobileOpen()">
+
+  <div class="vnav__inner">
+    <!-- Brand -->
+    <a routerLink="/" class="vnav__brand" aria-label="Violetis R&D Home" (click)="closeMobile()">
+      <img
+        ngSrc="/assets/brand/violetis-rnd-logo.png"
+        width="165"
+        height="165"
+        alt="Violetis® R&D"
+      />
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="vnav__menu" aria-label="Main" #menu>
+      <a #navLink routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact:true }"
+         (mouseenter)="hoverIndicator($event)" (mouseleave)="unhoverIndicator()">Home</a>
+      <a #navLink routerLink="/about" routerLinkActive="is-active"
+         (mouseenter)="hoverIndicator($event)" (mouseleave)="unhoverIndicator()">About us</a>
+      <a #navLink routerLink="/research" routerLinkActive="is-active"
+         (mouseenter)="hoverIndicator($event)" (mouseleave)="unhoverIndicator()">AI Researches</a>
+      <a #navLink routerLink="/research" routerLinkActive="is-active"
+         (mouseenter)="hoverIndicator($event)" (mouseleave)="unhoverIndicator()">Investors</a>
+      <a #navLink routerLink="/enroll" routerLinkActive="is-active"
+         (mouseenter)="hoverIndicator($event)" (mouseleave)="unhoverIndicator()">Enroll</a>
+      <a #navLink routerLink="/joinus" routerLinkActive="is-active" class="emph"
+         (mouseenter)="hoverIndicator($event)" (mouseleave)="unhoverIndicator()">Join us</a>
+
+      <!-- Active/Hover Indicator -->
+      <span class="vnav__indicator" #indicator aria-hidden="true"></span>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="vnav__right">
+      <a routerLink="/account" class="vnav__avatar" aria-label="Account" (click)="closeMobile()">
+        <img
+          ngSrc="/assets/avatars/user.png"
+          width="85"
+          height="85"
+          alt="User avatar"
+        />
+      </a>
+
+      <button
+        class="vnav__toggle"
+        type="button"
+        aria-label="Toggle menu"
+        [attr.aria-expanded]="mobileOpen()"
+        aria-controls="mobile-menu"
+        (click)="toggleMobile()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="vnav__dropdown" aria-label="Mobile Menu">
+    <a routerLink="/" [routerLinkActive]="'is-active'" [routerLinkActiveOptions]="{ exact:true }" (click)="closeMobile()">Home</a>
+    <a routerLink="/about" routerLinkActive="is-active" (click)="closeMobile()">About us</a>
+    <a routerLink="/research" routerLinkActive="is-active" (click)="closeMobile()">Ai Researches</a>
+    <a routerLink="/enroll" routerLinkActive="is-active" (click)="closeMobile()">Enroll</a>
+    <a routerLink="/joinus" routerLinkActive="is-active" class="emph" (click)="closeMobile()">Join us</a>
+  </nav>
+</header>

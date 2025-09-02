@@ -1,0 +1,236 @@
+<section class="hero-section fade-in text-center">
+  <!-- Hero background -->
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Hero content -->
+  <div class="container-lg px-3 px-md-4">
+    <div class="hero-content">
+      <h1 class="hero-title fade-in">Advancing AI Responsibly</h1>
+      <p class="hero-subtext fade-in-up">
+        VIOLETIS Labs is a research hub dedicated to open, ethical, and transparent AI innovation.
+      </p>
+      <div class="d-flex justify-content-center fade-in-up">
+        <a routerLink="/about" class="btn-explore">Explore Research</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Explore panel -->
+  <div class="explore-panel fade-in-up" appAnimateOnScroll>
+    <svg class="explore-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1461 402" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="exploreGradient" x1="730.5" y1="0" x2="730.5" y2="394" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#7DC6EE" stop-opacity="0.8"/>
+          <stop offset="0.0001" stop-color="#1D2162" stop-opacity="0.8"/>
+        </linearGradient>
+      </defs>
+      <path d="M4 50C4 22.3858 26.3858 0 54 0H406.701C420.186 0 433.1 5.44722 442.511 15.1055L527.281 102.1C536.692 111.758 549.606 117.206 563.091 117.206H736.5H883.905C897.097 117.206 909.755 111.992 919.12 102.701L1008.02 14.5049C1017.38 5.21362 1030.04 0 1043.23 0H1407C1434.61 0 1457 22.3858 1457 50V344C1457 371.614 1434.61 394 1407 394H54C26.3857 394 4 371.614 4 344V50Z"
+        fill="url(#exploreGradient)" shape-rendering="crispEdges"/>
+    </svg>
+
+    <div class="explore-content">
+      <h2 class="h1 fw-bold text-white mb-3 fade-in">What We Explore</h2>
+      <p class="text-white-100 mb-0 fade-in-up">From AGI safety to collaborative open-source tools</p>
+    </div>
+  </div>
+</section>
+
+<!-- Feature grid -->
+<section class="feature-section" appAnimateOnScroll>
+  <div class="container-lg px-3 px-md-4">
+    <div class="row g-4 tiles">
+      <div
+        class="col-12 col-md-6 col-lg-4"
+        *ngFor="let f of features; index as i"
+      >
+        <div
+          class="feature-wrapper"
+          [style.animationDelay]="i * 0.15 + 's'"
+          appAnimateOnScroll
+        >
+          <article
+            class="feature-card"
+            role="button"
+            tabindex="0"
+            (click)="openFeature(i)"
+            (keydown.enter)="openFeature(i)"
+            aria-label="Open feature details"
+          >
+            <div class="feature-img">
+              <img
+                ngSrc="{{ f.img }}"
+                width="420"
+                height="300"
+                decoding="async"
+                loading="lazy"
+                alt="{{ f.title }}"
+              />
+            </div>
+          </article>
+
+          <!-- Title pill (tooltip via CSS) -->
+          <div
+            class="feature-title has-tooltip"
+            [attr.data-tooltip]="'Learn more about ' + f.title"
+          >
+            {{ f.title }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Join-us CTA -->
+<section class="cta-section" appAnimateOnScroll>
+  <div class="cta-banner fade-in-up">
+    <!-- Media -->
+    <div class="cta-media">
+      <div class="waveset waves-top" aria-hidden="true">
+        <svg viewBox="0 0 259 52" xmlns="http://www.w3.org/2000/svg">
+          <path d="M180.705 25.447L129.712 10.0033L78.9444 25.447L28.1768 10.0033L4.9365 17.0232L0.423828 8.42384L28.1768 0L78.9444 15.4437L129.712 0L180.705 15.4437L231.473 0L259 8.42384L254.713 17.0232L231.473 10.0033L180.705 25.447Z" fill="#A8AEBA"/>
+          <path d="M180.705 51.0693L129.712 35.6256L78.9444 51.0693L28.1768 35.6256L4.9365 42.6455L0.423828 33.8706L28.1768 25.4468L78.9444 41.066L129.712 25.4468L180.705 41.066L231.473 25.4468L259 33.8706L254.713 42.6455L231.473 35.6256L180.705 51.0693Z" fill="#A8AEBA"/>
+        </svg>
+      </div>
+
+      <figure class="cta-illustration fade-in">
+        <img
+          ngSrc="/assets/images/undraw_online-community.png"
+          width="493" height="366"
+          decoding="async" loading="lazy"
+          alt="People connected in a research network"
+        />
+      </figure>
+
+      <div class="waveset waves-bottom" aria-hidden="true">
+        <svg viewBox="0 0 259 52" xmlns="http://www.w3.org/2000/svg">
+          <path d="M180.705 25.447L129.712 10.0033L78.9444 25.447L28.1768 10.0033L4.9365 17.0232L0.423828 8.42384L28.1768 0L78.9444 15.4437L129.712 0L180.705 15.4437L231.473 0L259 8.42384L254.713 17.0232L231.473 10.0033L180.705 25.447Z" fill="#A8AEBA"/>
+          <path d="M180.705 51.0693L129.712 35.6256L78.9444 51.0693L28.1768 35.6256L4.9365 42.6455L0.423828 33.8706L28.1768 25.4468L78.9444 41.066L129.712 25.4468L180.705 41.066L231.473 25.4468L259 33.8706L254.713 42.6455L231.473 35.6256L180.705 51.0693Z" fill="#A8AEBA"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Copy -->
+    <div class="cta-text fade-in-up">
+      <h2 class="cta-title">
+        <span class="highlight-free">Free</span> – to join our<br />
+        community for AI research
+      </h2>
+      <a routerLink="/enroll" class="cta-btn">Join us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Team collaboration -->
+<section class="collab-section" >
+  <div class="container-lg px-3 px-md-4 fade-in-up">
+
+    <div class="collab-illustration-wrap fade-in">
+      <img
+        ngSrc="/assets/images/team-collab-illustration.png"
+        width="574"
+        height="486"
+        alt="Team collaboration illustration"
+        class="collab-illustration"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+
+    <div class="collab-panel fade-in-up">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-7">
+          <h2 class="collab-title">Team collaboration in <span class="text-primary">one</span><br /> simple place with privacy<br /> comes first.</h2>
+          <p class="collab-desc">Securely share and work together with Violetis simple file storage and sharing, easy user management, unlimited file size, password protected links and more.</p>
+          <div class="d-flex gap-4 flex-wrap fade-in-up">
+            <a routerLink="/enroll" class="btn-start">Start now</a>
+            <a routerLink="/features" class="btn-more">More features</a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5"></div>
+      </div>
+
+      <figure class="cards-group" aria-hidden="true">
+        <img
+          ngSrc="/assets/images/cards-group.png"
+          width="1221"
+          height="294"
+          alt="Decorative floating cards"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Agile / documentation -->
+<section class="agile-section" >
+  <div class="container-lg px-3 px-md-4">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-6">
+        <h2 class="agile-title fade-in">
+          Driven by<br />
+          research–based<br />
+          agile methodology<br />
+          with transparent,<br />
+          open<br />
+          documentation.
+        </h2>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="agile-visual fade-in-up">
+          <img
+            ngSrc="/assets/images/popup.png"
+            width="720"
+            height="520"
+            alt="Share Your Folder with permissions popup"
+            class="agile-card"
+            decoding="async"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" appAnimateOnScroll>
+  <div class="container-lg px-3 px-md-4">
+    <div class="row faq-row">
+      <!-- Left -->
+      <div class="col-12 col-lg-5 faq-left fade-in">
+        <h2 class="faq-title">Frequently<br>Asked Questions</h2>
+        <a class="btn-more" routerLink="/support/faq">More FAQ’s</a>
+      </div>
+
+      <!-- Right -->
+      <div class="col-12 col-lg-7 faq-right fade-in-up">
+        <ul class="faq-list">
+          <li class="faq-item" *ngFor="let f of faqs; let i = index">
+            <button
+              type="button"
+              class="faq-trigger"
+              [attr.aria-expanded]="openId === i"
+              [attr.aria-controls]="'faq-panel-' + i"
+              (click)="toggle(i)"
+              (keydown.enter)="toggle(i)"
+              (keydown.space)="toggle(i)"
+            >
+              <span class="q-label">{{ f.q }}</span>
+              <span class="chev" [class.open]="openId === i" aria-hidden="true"></span>
+            </button>
+
+            <div class="faq-panel" [id]="'faq-panel-' + i" *ngIf="openId === i">
+              <p class="a-text">{{ f.a }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
