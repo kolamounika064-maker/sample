@@ -7,12 +7,12 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: scripts/beforeinstall.sh   # your actual script
+    - location: scripts/before_install.sh   # your actual script
       timeout: 300
       runas: ec2-user
 
   AfterInstall:
-    - location: scripts/setup.sh
+    - location: scripts/after_install.sh
       timeout: 300
       runas: ec2-user
 
@@ -21,7 +21,4 @@ hooks:
       timeout: 300
       runas: ec2-user
 
-  ValidateService:
-    - location: scripts/validate.sh
-      timeout: 300
-      runas: ec2-user
+  
