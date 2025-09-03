@@ -3,17 +3,16 @@ os: linux
 
 files:
   - source: /
-<<<<<<< HEAD
-    destination: /home/ec2-user/app
-
-hooks:
-  AfterInstall:
-=======
     destination: /home/ec2-user/rnd-app
 
 hooks:
+  BeforeInstall:
+    - location: scripts/cleanup.sh   # optional cleanup script
+      timeout: 300
+      runas: ec2-user
+
   AfterInstall:
-    - location: scripts/setup.sh
+    - location: scripts/after_install.sh
       timeout: 300
       runas: ec2-user
 
@@ -23,7 +22,6 @@ hooks:
       runas: ec2-user
 
   ValidateService:
->>>>>>> 4c740b36085c57fb90ae6de2c8d7f0e36e8449cc
     - location: scripts/validate.sh
       timeout: 300
       runas: ec2-user
