@@ -6,10 +6,7 @@ files:
     destination: /home/ec2-user/rnd-app
 
 hooks:
-  BeforeInstall:
-    - location: scripts/before_install.sh   # your actual script
-      timeout: 300
-      runas: ec2-user
+
 
   AfterInstall:
     - location: scripts/after_install.sh
