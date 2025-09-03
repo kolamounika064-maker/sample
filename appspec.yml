@@ -7,12 +7,12 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: scripts/cleanup.sh   # optional cleanup script
+    - location: scripts/beforeinstall.sh   # your actual script
       timeout: 300
       runas: ec2-user
 
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: scripts/setup.sh
       timeout: 300
       runas: ec2-user
 
