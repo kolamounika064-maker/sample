@@ -2,12 +2,12 @@ version: 0.0
 os: linux
 
 files:
-  - source: /index.html
+  - source: /
     destination: /home/ec2-user/rnd-app
 
 hooks:
-BeforeInstall:
-    - location: install_dependencies.sh
+  BeforeInstall:
+    - location: scripts/before_install.sh
       timeout: 300
       runas: ec2-user
 
@@ -22,8 +22,6 @@ BeforeInstall:
       runas: ec2-user
 
   ValidateService:
-      -location: scripts/validate.sh
+    - location: scripts/validate.sh
       timeout: 300
       runas: ec2-user
-
-  
