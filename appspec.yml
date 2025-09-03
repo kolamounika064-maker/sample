@@ -3,10 +3,27 @@ os: linux
 
 files:
   - source: /
+<<<<<<< HEAD
     destination: /home/ec2-user/app
 
 hooks:
   AfterInstall:
+=======
+    destination: /home/ec2-user/rnd-app
+
+hooks:
+  AfterInstall:
+    - location: scripts/setup.sh
+      timeout: 300
+      runas: ec2-user
+
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 300
+      runas: ec2-user
+
+  ValidateService:
+>>>>>>> 4c740b36085c57fb90ae6de2c8d7f0e36e8449cc
     - location: scripts/validate.sh
       timeout: 300
       runas: ec2-user
